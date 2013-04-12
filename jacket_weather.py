@@ -19,6 +19,7 @@ from blink1 import Blink1
 STATION = '2274'  # Portland, OR KPDX
 OPENWEATHERMAP_URL = 'http://api.openweathermap.org/data/2.1/weather/station/%s?type=json'
 FIVE_MIN = 60 * 5
+TEN_MIN = 60 * 10
 TEMP_THRESHOLD_F = 50
 
 
@@ -38,7 +39,7 @@ def jacket_weather():
 def jacket_weather_loop():
     while True:
         jacket_weather()
-        time.sleep(FIVE_MIN)
+        time.sleep(TEN_MIN)
 
 
 def main():
