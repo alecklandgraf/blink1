@@ -14,7 +14,7 @@ def get_color():
 
 
 def set_color(color='green'):
-    call(['../blink1-tool', '--%s' % color])
+    call(['lib/blink1-tool', '--%s' % color])
 
 
 def delay(default=5):
@@ -28,8 +28,8 @@ def cycle():
 
 def main():
     while True:
-        delay()
         cycle()
+        delay()
 
 if __name__ == "__main__":
     main()
