@@ -20,7 +20,7 @@ FIVE_MIN = 60 * 5
 TEMP_THRESHOLD_F = 55
 
 
-def main():
+def jacket_weather():
     blinker = Blink1()
     data = urlopen(OPENWEATHERMAP_URL % STATION)
     weather = load(data)
@@ -31,6 +31,9 @@ def main():
     else:
         blinker.blue()
 
+
+def main():
+    jacket_weather()
 
 if __name__ == "__main__":
     main()
