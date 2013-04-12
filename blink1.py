@@ -24,7 +24,7 @@ class Blink1():
         self._call_blink1_tool('--random', str(number_of_blinks))
 
     def rgb(self, rgb_color):
-        pass
+        raise Exception('rgb not implemented')
 
     def on(self):
         self._call_blink1_tool('--on')
