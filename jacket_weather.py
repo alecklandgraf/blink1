@@ -8,6 +8,8 @@ red if not jacket weather
 uses http://openweathermap.org/ for FREE weather data!!
 """
 
+import sys
+import time
 from json import load
 from urllib2 import urlopen
 
@@ -17,7 +19,7 @@ from blink1 import Blink1
 STATION = '2274'  # Portland, OR KPDX
 OPENWEATHERMAP_URL = 'http://api.openweathermap.org/data/2.1/weather/station/%s?type=json'
 FIVE_MIN = 60 * 5
-TEMP_THRESHOLD_F = 55
+TEMP_THRESHOLD_F = 50
 
 
 def jacket_weather():
@@ -30,9 +32,18 @@ def jacket_weather():
         blinker.red()
     else:
         blinker.blue()
+    print "Current weather for your location is %s degrees F" % current_temp_F
+
+
+def jacket_weather_loop():
+    while True:
+        jacket_weather()
+        time.sleep(FIVE_MIN)
 
 
 def main():
+    if '--loop' in sys.argv:
+        jacket_weather_loop()
     jacket_weather()
 
 if __name__ == "__main__":
