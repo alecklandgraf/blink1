@@ -13,6 +13,7 @@ class Blink1():
     """Blink1"""
 
     blink1_tool_file_path = 'lib/blink1-tool'
+    quite_mode = True
 
     def blink(self, number_of_blinks, rgb_color=None):
         if rgb_color:
@@ -44,6 +45,8 @@ class Blink1():
         if all(isinstance(item, basestring) for item in args):
             call_list = list(args)
             call_list.insert(0, self.blink1_tool_file_path)
+            if self.quite_mode:
+                call_list.append('-q')
             call(call_list)
         else:
             raise TypeError('arguments must be strings')
