@@ -1,5 +1,9 @@
 """
-Blink1 class
+Blink1 class/lib for blink1-tool and device
+usage:
+        from blink1 import Blink1
+        blinker = Blink1()
+        blinker.random(5)
 """
 
 from subprocess import call
