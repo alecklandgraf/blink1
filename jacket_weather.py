@@ -10,7 +10,6 @@ uses http://openweathermap.org/ for FREE weather data!!
 
 from json import load
 from urllib2 import urlopen
-import time
 
 from blink1 import Blink1
 
@@ -23,16 +22,14 @@ TEMP_THRESHOLD_F = 55
 
 def main():
     blinker = Blink1()
-    while True:
-        data = urlopen(OPENWEATHERMAP_URL % STATION)
-        weather = load(data)
-        current_temp_F = (float(weather['main']['temp']) - 273.15) * 9/5 + 32
+    data = urlopen(OPENWEATHERMAP_URL % STATION)
+    weather = load(data)
+    current_temp_F = (float(weather['main']['temp']) - 273.15) * 9/5 + 32
 
-        if current_temp_F > TEMP_THRESHOLD_F:
-            blinker.red()
-        else:
-            blinker.blue()
-        time.sleep(FIVE_MIN)
+    if current_temp_F > TEMP_THRESHOLD_F:
+        blinker.red()
+    else:
+        blinker.blue()
 
 
 if __name__ == "__main__":
