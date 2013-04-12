@@ -22,6 +22,9 @@ class Blink1():
         self._call_blink1_tool('--rgb %s' % rgb_color)
 
     def _call_blink1_tool(self, *args):
-        call_list = list(args)
-        call_list.insert(0, self.blink1_tool_file_path)
-        call(call_list)
+        if all(isinstance(item, basestring) for item in args):
+            call_list = list(args)
+            call_list.insert(0, self.blink1_tool_file_path)
+            call(call_list)
+        else:
+            raise TypeError('arguments must be strings')
