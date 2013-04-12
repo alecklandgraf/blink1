@@ -10,6 +10,7 @@ uses http://openweathermap.org/ for FREE weather data!!
 
 import sys
 import time
+from time import strftime
 from json import load
 from urllib2 import urlopen
 
@@ -33,7 +34,7 @@ def jacket_weather():
         blinker.red()
     else:
         blinker.blue()
-    print "Current weather for your location is %s degrees F" % current_temp_F
+    print "Current weather for your location is %s degrees F @ %s" % (current_temp_F, strftime("%Y-%m-%d %H:%M:%S", time.localtime()), )
 
 
 def jacket_weather_loop():
