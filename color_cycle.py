@@ -3,7 +3,7 @@
 color_cycle.py
 """
 
-from time import time
+import time
 from subprocess import call
 from random import randrange
 
@@ -18,7 +18,7 @@ def set_color(color='green'):
 
 
 def delay(default=5):
-    time.wait(default)
+    time.sleep(default)
 
 
 def cycle():
