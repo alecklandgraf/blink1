@@ -31,6 +31,15 @@ class Blink1():
     def off(self):
         self._call_blink1_tool('--off')
 
+    def red(self):
+        self._call_blink1_tool('--red')
+
+    def green(self):
+        self._call_blink1_tool('--green')
+
+    def blue(self):
+        self._call_blink1_tool('--blue')
+
     def _call_blink1_tool(self, *args):
         if all(isinstance(item, basestring) for item in args):
             call_list = list(args)
