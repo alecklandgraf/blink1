@@ -24,7 +24,7 @@ def jacket_weather():
     blinker = Blink1()
     data = urlopen(OPENWEATHERMAP_URL % STATION)
     weather = load(data)
-    current_temp_F = (float(weather['main']['temp']) - 273.15) * 9/5 + 32
+    current_temp_F = (float(weather['main']['temp']) - 273.15) * 9 / 5 + 32
 
     if current_temp_F > TEMP_THRESHOLD_F:
         blinker.red()
