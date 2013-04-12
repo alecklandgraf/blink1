@@ -1,9 +1,8 @@
 blink1
 ======
 
-Blink1 USB light configs http://thingm.com/products/blink-1.html
-
 python scripts for your blink1
+http://thingm.com/products/blink-1.html
 
 ## usage
 set your `blink1_tool_file_path` in `blink1.py`
