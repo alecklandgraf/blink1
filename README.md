@@ -6,7 +6,7 @@ Blink1 USB light configs http://thingm.com/products/blink-1.html
 python scripts for your blink1
 
 ## usage
-set your *blink1-tool file path* in `blink1.py`
+set your `blink1_tool_file_path` in `blink1.py`
 
 or 
 
