@@ -1,21 +1,22 @@
-#!/usr/local/bin/python
 """
 Blink1 class
 """
 
-class Blink1(object):
-	"""Blink1"""
+from subprocess import call
 
-	blink1_tool_file_path = 'lib/blink1-tool'
 
-	def __init__(self, arg):
-		super(Blink1, self).__init__()
-		self.arg = arg
+class Blink1():
+    """Blink1"""
 
-	def rgb(self, rgb_color):
-		pass
+    blink1_tool_file_path = 'lib/blink1-tool'
 
-	def blink(self, number_of_blinks, rgb_color=None):
-		if rgb:
-			self.rgb(rgb)
+    def blink(self, number_of_blinks, rgb_color=None):
+        if rgb_color:
+            self.rgb(rgb_color)
+            self._call_blink1_tool('--blink %s' % number_of_blinks)
 
+    def rgb(self, rgb_color):
+        self._call_blink1_tool("--rgb %s" % rgb_color)
+
+    def _call_blink1_tool(self, args):
+        call([self.blink1_tool_file_path, args])
