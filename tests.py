@@ -16,6 +16,7 @@ def rgb_test(blink_device):
 
 def main():
     blinker = Blink1()
+    blinker.quite_mode = False
     rgb_test(blinker)
 
 
