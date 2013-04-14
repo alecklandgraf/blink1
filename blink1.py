@@ -29,8 +29,7 @@ class Blink1():
             hex_colorh should be a string i.e. '#FF0000'
         '''
         if rgb_color:
-            print rgb_color, type(rgb_color)
-            if len(rgb_color != 3):
+            if len(rgb_color) != 3:
                 raise Exception('rgb_color takes 3 arguments')
             rgb_string = '%s,%s,%s' % (rgb_color[0], rgb_color[1], rgb_color[2], )
             self._call_blink1_tool('--rgb', rgb_string)
