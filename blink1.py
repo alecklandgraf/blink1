@@ -15,16 +15,23 @@ class Blink1():
     blink1_tool_file_path = 'lib/blink1-tool'
     quite_mode = True
 
-    def blink(self, number_of_blinks, rgb_color=None):
-        if rgb_color:
-            self.rgb(rgb_color)
+    def blink(self, number_of_blinks, rgb_color=None, hex_color=None):
+        if rgb_color or hex_color:
+            self.rgb(rgb_color=rgb_color, hex_color=hex_color)
         self._call_blink1_tool('--blink', str(number_of_blinks))
 
     def random(self, number_of_blinks):
         self._call_blink1_tool('--random', str(number_of_blinks))
 
-    def rgb(self, rgb_color):
-        raise Exception('rgb not implemented')
+    def rgb(self, rgb_color=None, hex_color=None):
+        ''' rgb_color should be a tuple or list of strings or ints i.e. ('0xff', '0', '00') or [255,'0', '255]
+            hex_colorh should be a string i.e. '#FF0000'
+        '''
+        if rgb_color:
+            if len(rgb_color != 3):
+                raise Exception('rgb_color takes 3 arguments')
+            rgb_string = '%s,%s,%s' % (rgb_color[0], rgb_color[1], rgb_color[2], )
+            self._call_blink1_tool('--rgb', rgb_string)
 
     def on(self):
         self._call_blink1_tool('--on')
