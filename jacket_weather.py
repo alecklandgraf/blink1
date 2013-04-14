@@ -31,6 +31,7 @@ def jacket_weather():
         weather = load(data)
         current_temp_F = (float(weather['main']['temp']) - 273.15) * 9 / 5 + 32
     except:
+        print "Error: couldn't get weather data"
         current_temp_F = 50
 
     if current_temp_F > TEMP_THRESHOLD_F:
