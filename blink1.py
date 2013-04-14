@@ -1,9 +1,6 @@
 """
 Blink1 class/lib for blink1-tool and device
-usage:
-        from blink1 import Blink1
-        blinker = Blink1()
-        blinker.random(5)
+    see tests.py for examples
 """
 
 from subprocess import call
