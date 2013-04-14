@@ -38,7 +38,6 @@ class Blink1():
             except ValueError:
                 pass
 
-
     def on(self):
         self._call_blink1_tool('--on')
 
