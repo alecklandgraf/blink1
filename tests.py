@@ -8,6 +8,10 @@ from blink1 import Blink1
 
 def rgb_test(blink_device):
     blink_device.rgb(rgb_color=(255, 0, 0))
+    blink_device.delay(5)
+    blink_device.rgb(rgb_color=(0, 255, 0))
+    blink_device.delay(5)
+    blink_device.rgb(rgb_color=(0, 0, 255))
 
 
 def main():
