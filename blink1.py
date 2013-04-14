@@ -7,6 +7,7 @@ usage:
 """
 
 from subprocess import call
+import time
 
 
 class Blink1():
@@ -57,3 +58,6 @@ class Blink1():
             call(call_list)
         else:
             raise TypeError('arguments must be strings')
+
+    def delay(self, delay=5):
+        time.sleep(delay)
