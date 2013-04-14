@@ -24,7 +24,7 @@ class Blink1():
     def random(self, number_of_blinks):
         self._call_blink1_tool('--random', str(number_of_blinks))
 
-    def rgb(self, rgb_color=None, hex_color=None):
+    def rgb(self, rgb_color, hex_color=None):
         ''' rgb_color should be a tuple or list of strings or ints i.e. ('0xff', '0', '00') or [255,'0', '255]
             hex_colorh should be a string i.e. '#FF0000'
         '''
