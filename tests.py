@@ -40,11 +40,15 @@ def _hex_to_rgb_test(blink_device):
     assert blink_device._hex_to_rgb('#0000FF') == (0, 0, 255)
 
 
+def orange_test(blink_device):
+    blink_device.orange()
+
+
 def main():
     blinker = Blink1()
     blinker.quite_mode = False
     rgb_test(blinker)
-    blinker.orange()
+    orange_test(blinker)
     _hex_to_rgb_test(blinker)
 
 
