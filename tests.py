@@ -14,6 +14,16 @@ def rgb_test(blink_device):
     blink_device.rgb((0, 0, 255))
     blink_device.delay(1)
     blink_device.rgb()
+    blink_device.rgb(hex_color='#ff0000')
+    blink_device.delay(1)
+    blink_device.rgb(hex_color='#1072B9')
+    blink_device.delay(1)
+    blink_device.rgb(hex_color='#959595')
+    blink_device.delay(1)
+    blink_device.rgb(hex_color='#8BC542')
+    blink_device.delay(1)
+    blink_device.rgb(hex_color='#1072B9')
+    blink_device.delay(1)
 
 
 def _hex_to_rgb_test(blink_device):
