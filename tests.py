@@ -8,6 +8,7 @@ from blink1 import Blink1
 
 def rgb_test(blink_device):
     blink_device.rgb(rgb_color=(255, 0, 0))
+    print "return code", blink_device.command_output
     blink_device.delay(1)
     blink_device.rgb(rgb_color=(0, 255, 0))
     blink_device.delay(1)
@@ -22,8 +23,7 @@ def rgb_test(blink_device):
     blink_device.delay(1)
     blink_device.rgb(hex_color='#8BC542')
     blink_device.delay(1)
-    blink_device.rgb(hex_color='#1072B9')
-    blink_device.delay(1)
+    blink_device.rgb(hex_color='1072B9')
 
 
 def _hex_to_rgb_test(blink_device):

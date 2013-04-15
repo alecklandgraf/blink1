@@ -3,7 +3,7 @@ Blink1 class/lib for blink1-tool and device
     see tests.py for examples
 """
 
-from subprocess import call
+import os
 import time
 
 
@@ -12,7 +12,7 @@ class Blink1():
 
     blink1_tool_file_path = 'lib/blink1-tool'
     quite_mode = True
-    return_code = 0
+    command_output = ''
 
     def blink(self, number_of_blinks, rgb_color=None, hex_color=None):
         if rgb_color or hex_color:
@@ -58,7 +58,13 @@ class Blink1():
             arg_list.insert(0, self.blink1_tool_file_path)
             if self.quite_mode:
                 arg_list.append('-q')
-            self.return_code = call(arg_list)
+
+            arg_string = ''
+            for arg in arg_list:
+                arg_string += arg + ' '
+
+            child = os.popen(arg_string)
+            self.command_output = child.read()
         else:
             raise TypeError('arguments must be strings')
 
