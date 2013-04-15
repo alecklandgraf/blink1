@@ -65,6 +65,9 @@ class Blink1():
 
             child = os.popen(arg_string)
             self.command_output = child.read()
+            err = child.close()
+            if err:
+                raise RuntimeError('%s failed with exit code %d' % (arg_string, err))
         else:
             raise TypeError('arguments must be strings')
 
