@@ -42,6 +42,7 @@ def _hex_to_rgb_test(blink_device):
 
 def orange_test(blink_device):
     blink_device.orange()
+    assert "set dev:0 to rgb:0xff,0x96,0x00 over 300 msec" in blink_device.command_output
 
 
 def main():
