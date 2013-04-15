@@ -44,6 +44,7 @@ def main():
     blinker = Blink1()
     blinker.quite_mode = False
     rgb_test(blinker)
+    blinker.orange()
     _hex_to_rgb_test(blinker)
 
 

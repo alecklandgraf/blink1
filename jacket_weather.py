@@ -33,6 +33,7 @@ def jacket_weather():
     except:
         print "Error: couldn't get weather data"
         current_temp_F = 50
+        blinker.blink(5)
 
     if current_temp_F > TEMP_THRESHOLD_F:
         blinker.red()

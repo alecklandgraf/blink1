@@ -49,6 +49,9 @@ class Blink1():
     def blue(self):
         self._call_blink1_tool('--blue')
 
+    def orange(self):
+        self.rgb((255, 150, 0))
+
     def delay(self, delay=5):
         time.sleep(delay)
 
