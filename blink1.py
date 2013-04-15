@@ -25,18 +25,13 @@ class Blink1():
         ''' rgb_color should be a tuple or list of strings or ints i.e. ('0xff', '0', '00') or [255,'0', '255]
             hex_color should be a string i.e. '#FF0000'
         '''
+        if hex_color:
+            rgb_color = self._hex_to_rgb(str(hex_color))
         if rgb_color:
             if len(rgb_color) != 3:
                 raise Exception('rgb_color takes 3 arguments')
             rgb_string = '%s,%s,%s' % (rgb_color[0], rgb_color[1], rgb_color[2], )
             self._call_blink1_tool('--rgb', rgb_string)
-        if hex_color:
-            hex_color = str(hex_color)
-            hex_color = list(hex_color)
-            try:
-                hex_color.remove('#')
-            except ValueError:
-                pass
 
     def on(self):
         self._call_blink1_tool('--on')
@@ -53,6 +48,9 @@ class Blink1():
     def blue(self):
         self._call_blink1_tool('--blue')
 
+    def delay(self, delay=5):
+        time.sleep(delay)
+
     def _call_blink1_tool(self, *args):
         if all(isinstance(item, basestring) for item in args):
             call_list = list(args)
@@ -63,5 +61,7 @@ class Blink1():
         else:
             raise TypeError('arguments must be strings')
 
-    def delay(self, delay=5):
-        time.sleep(delay)
+    def _hex_to_rgb(self, value):
+        value = value.lstrip('#')
+        lv = len(value)
+        return tuple(int(value[i:i + lv / 3], 16) for i in range(0, lv, lv / 3))
