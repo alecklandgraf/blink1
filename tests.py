@@ -42,7 +42,17 @@ def _hex_to_rgb_test(blink_device):
 
 def orange_test(blink_device):
     blink_device.orange()
+    blink_device.delay(1)
     assert "set dev:0 to rgb:0xff,0x96,0x00 over 300 msec" in blink_device.command_output
+
+
+def blink_test(blink_device):
+    blink_device.blink(5)
+    assert "blink 5 times rgb:ff,ff,ff:" in blink_device.command_output
+    blink_device.blink(5, rgb_color=(255, 0, 0))
+    assert "blink 5 times rgb:ff,0,0:" in blink_device.command_output
+    blink_device.blink(5, hex_color='#1072B9')
+    assert "blink 5 times rgb:10,72,b9:" in blink_device.command_output
 
 
 def main():
@@ -51,6 +61,7 @@ def main():
     rgb_test(blinker)
     orange_test(blinker)
     _hex_to_rgb_test(blinker)
+    blink_test(blinker)
 
 
 if __name__ == "__main__":

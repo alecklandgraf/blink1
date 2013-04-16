@@ -16,8 +16,12 @@ class Blink1():
 
     def blink(self, number_of_blinks, rgb_color=None, hex_color=None):
         if rgb_color or hex_color:
-            self.rgb(rgb_color=rgb_color, hex_color=hex_color)
-        self._call_blink1_tool('--blink', str(number_of_blinks))
+            if hex_color:
+                rgb_color = self._hex_to_rgb(str(hex_color))
+            rgb_string = self._construct_rgb_string(rgb_color)
+            self._call_blink1_tool('--rgb', rgb_string, '--blink', str(number_of_blinks))
+        else:
+            self._call_blink1_tool('--blink', str(number_of_blinks))
 
     def random(self, number_of_blinks):
         self._call_blink1_tool('--random', str(number_of_blinks))
