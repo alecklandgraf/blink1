@@ -30,6 +30,9 @@ b.delay(10)
 
 ## jacket_weather.py
 `./jacket_weather.py` or `python jacket_weather.py`
+
+`./jacket_weather.py --loop` to keep running, updates every minute
+
 orange if it's warm (>50F), blue if it's cold,
 blinks if it's raining
 
@@ -38,6 +41,7 @@ uses http://openweathermap.org/
 ## color_cycle.py
 `./color_cycle.py` or `python color_cycle.py`
 cycles though various colors
+
 `christmas` mode available for the holidays
 
 ## tests.py
