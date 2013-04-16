@@ -33,7 +33,7 @@ def jacket_weather():
         data = urlopen(OPENWEATHERMAP_URL % CITY)
         weather = load(data)
         current_temp_F = (float(weather['main']['temp']) - 273.15) * 9 / 5 + 32
-        current_condition = weather['weather'][0]['main']
+        current_condition = weather['weather'][0]['description']
     except:
         print "Error: couldn't get weather data"
         current_temp_F = "unknown"
