@@ -21,6 +21,7 @@ STATION = '2274'  # Portland, OR KPDX
 CITY = '5746545'  # Portland
 OPENWEATHERMAP_URL = 'http://api.openweathermap.org/data/2.1/weather/city/%s?type=json'
 OPENWEATHERMAP_FORECAST_URL = 'http://api.openweathermap.org/data/2.1/forecast/city/%s?type=json'
+ONE_MIN = 60 * 1
 FIVE_MIN = 60 * 5
 TEN_MIN = 60 * 10
 FIFTEEN_MIN = 60 * 15
@@ -39,7 +40,7 @@ def jacket_weather():
         print "Error: couldn't get weather data"
         current_temp_F = "unknown"
         current_condition = "unknown"
-        current_condition_code = "unknown"
+        current_condition_code = -1
 
     if current_temp_F > TEMP_THRESHOLD_F:
         blinker.orange()
@@ -55,7 +56,7 @@ def jacket_weather():
 def jacket_weather_loop():
     while True:
         jacket_weather()
-        time.sleep(TEN_MIN)
+        time.sleep(ONE_MIN)
 
 
 def main():
