@@ -33,6 +33,8 @@ b.delay(10)
 orange if it's warm (>50F), blue if it's cold,
 blinks if it's raining
 
+uses http://openweathermap.org/
+
 ## color_cycle.py
 `./color_cycle.py` or `python color_cycle.py`
 cycles though various colors
