@@ -27,6 +27,8 @@ TEN_MIN = 60 * 10
 FIFTEEN_MIN = 60 * 15
 TEMP_THRESHOLD_F = 50
 
+DELAY = ONE_MIN
+
 
 def jacket_weather():
     blinker = Blink1()
@@ -42,21 +44,29 @@ def jacket_weather():
         current_condition = "unknown"
         current_condition_code = -1
 
+    print "Current weather for your location is %s degrees F and %s @ %s" % (current_temp_F, current_condition, strftime("%Y-%m-%d %H:%M:%S", time.localtime()), )
     if current_temp_F > TEMP_THRESHOLD_F:
-        blinker.orange()
+        if current_condition_code < 700:
+            blinker.blink(DELAY, rgb_color=(255, 150, 0))
+            blinker.orange()
+        else:
+            blinker.orange()
+            blinker.delay(DELAY)
     else:
-        blinker.blue()
+        if current_condition_code < 700:
+            blinker.blink(DELAY, rgb_color=(0, 0, 255))
+            blinker.blue()
+        else:
+            blinker.blue()
+            blinker.delay(DELAY)
 
     if current_temp_F == "unknown":
         blinker.random(35)
-
-    print "Current weather for your location is %s degrees F and %s @ %s" % (current_temp_F, current_condition, strftime("%Y-%m-%d %H:%M:%S", time.localtime()), )
 
 
 def jacket_weather_loop():
     while True:
         jacket_weather()
-        time.sleep(ONE_MIN)
 
 
 def main():
