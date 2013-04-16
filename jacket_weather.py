@@ -48,7 +48,7 @@ def jacket_weather():
         blinker.blue()
 
     if current_temp_F == "unknown":
-        blinker.random(100)
+        blinker.random(35)
 
     print "Current weather for your location is %s degrees F and %s @ %s" % (current_temp_F, current_condition, strftime("%Y-%m-%d %H:%M:%S", time.localtime()), )
 
