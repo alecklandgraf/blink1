@@ -1,6 +1,6 @@
 #!/usr/local/bin/python
 """
-weather_blink.py
+jacket_weather.py
 
 blue if jacket weather
 red if not jacket weather
