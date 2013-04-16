@@ -34,10 +34,12 @@ def jacket_weather():
         weather = load(data)
         current_temp_F = (float(weather['main']['temp']) - 273.15) * 9 / 5 + 32
         current_condition = weather['weather'][0]['description']
+        current_condition_code = weather['weather'][0]['id']
     except:
         print "Error: couldn't get weather data"
         current_temp_F = "unknown"
         current_condition = "unknown"
+        current_condition_code = "unknown"
 
     if current_temp_F > TEMP_THRESHOLD_F:
         blinker.orange()
