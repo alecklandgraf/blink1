@@ -29,9 +29,7 @@ class Blink1():
         if hex_color:
             rgb_color = self._hex_to_rgb(str(hex_color))
         if rgb_color:
-            if len(rgb_color) != 3:
-                raise Exception('rgb_color takes 3 arguments')
-            rgb_string = '%s,%s,%s' % (rgb_color[0], rgb_color[1], rgb_color[2], )
+            rgb_string = self._construct_rgb_string(rgb_color)
             self._call_blink1_tool('--rgb', rgb_string)
 
     def on(self):
@@ -78,3 +76,9 @@ class Blink1():
         value = value.lstrip('#')
         lv = len(value)
         return tuple(int(value[i:i + lv / 3], 16) for i in range(0, lv, lv / 3))
+
+    def _construct_rgb_string(self, rgb_color):
+        if len(rgb_color) != 3:
+            raise Exception('rgb_color is a tuple of three ints or strings')
+
+        return '%s,%s,%s' % (rgb_color[0], rgb_color[1], rgb_color[2])
