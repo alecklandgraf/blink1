@@ -29,7 +29,7 @@ b.delay(10)
 ```
 
 ## jacket_weather.py
-orange if it's warm (>50F), blue if it's cold
+orange if it's warm (>50F), blue if it's cold,
 blinks if it's raining
 
 ## color_cycle.py
