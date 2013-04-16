@@ -1,7 +1,7 @@
 blink1
 ======
 
-python scripts for your blink1
+python scripts and library for your blink1
 
 http://thingm.com/products/blink-1.html
 
