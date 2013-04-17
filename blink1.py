@@ -86,3 +86,19 @@ class Blink1():
             raise Exception('rgb_color is a tuple of three ints or strings')
 
         return '%s,%s,%s' % (rgb_color[0], rgb_color[1], rgb_color[2])
+
+    def _color_scale(self, value, domain, color_range):
+        '''like d3.scale.linear().domain([30,90]).range(['red', 'white', 'green'])
+            domain: tuple or list of length 2
+            color_range: any list of discrete vales to be mapped to linearly
+
+            does not interpolate colors, just bins like a histogram
+        '''
+        if value >= domain[1]:
+            return color_range[-1]
+        if value <= domain[0]:
+            return color_range[0]
+        bin_width = (domain[1]-domain[0])/len(color_range)
+        for i in range(len(color_range)):
+            if value < domain[0] + (i+1) * bin_width:
+                return color_range[i]

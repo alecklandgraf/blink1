@@ -55,6 +55,23 @@ def blink_test(blink_device):
     assert "blink 5 times rgb:10,72,b9:" in blink_device.command_output
 
 
+def color_scale_test(blink_device):
+    temps = (30, 90)
+    colors = ['darkblue', 'blue', 'lightblue', 'orange', 'red']
+    color = blink_device._color_scale(0, temps, colors)
+    assert color == 'darkblue'
+    color = blink_device._color_scale(45, temps, colors)
+    assert color == 'blue'
+    color = blink_device._color_scale(60, temps, colors)
+    assert color == 'lightblue'
+    color = blink_device._color_scale(70, temps, colors)
+    assert color == 'orange'
+    color = blink_device._color_scale(85, temps, colors)
+    assert color == 'red'
+    color = blink_device._color_scale(1000, temps, colors)
+    assert color == 'red'
+
+
 def main():
     blinker = Blink1()
     blinker.quite_mode = False
@@ -62,6 +79,7 @@ def main():
     orange_test(blinker)
     _hex_to_rgb_test(blinker)
     blink_test(blinker)
+    color_scale_test(blinker)
 
 
 if __name__ == "__main__":
