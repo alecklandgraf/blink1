@@ -8,6 +8,7 @@ red is happy hour time!
 
 from datetime import datetime
 import sys
+import time
 
 from blink1 import Blink1
 
@@ -25,6 +26,7 @@ def happy_hour():
 
 def happy_hour_loop():
     while True:
+        time.sleep(10)
         happy_hour()
 
 
