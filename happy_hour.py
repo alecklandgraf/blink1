@@ -2,7 +2,7 @@
 """
 happy_hour.py
 
-red is happy hour time!
+green is happy hour time!
 
 """
 
@@ -21,13 +21,13 @@ def happy_hour():
     if now < happy_hour_time:
         b.blue()
     else:
-        b.red()
+        b.green()
 
 
 def happy_hour_loop():
     while True:
-        time.sleep(10)
         happy_hour()
+        time.sleep(10)
 
 
 def main():
