@@ -13,6 +13,7 @@ import time
 from time import strftime
 from json import load
 from urllib2 import urlopen
+import os
 
 from blink1 import Blink1
 
@@ -45,6 +46,7 @@ def jacket_weather():
         current_condition_code = -1
 
     print "Current weather for your location is %s degrees F and %s @ %s" % (current_temp_F, current_condition, strftime("%Y-%m-%d %H:%M:%S", time.localtime()), )
+    os.system('echo -e "\033];temp is %s\007"' % current_temp_F)
     if current_temp_F > TEMP_THRESHOLD_F:
         if current_condition_code < 700:
             blinker.blink(DELAY, rgb_color=(255, 150, 0))

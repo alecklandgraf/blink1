@@ -16,12 +16,13 @@ from blink1 import Blink1
 def happy_hour():
     b = Blink1()
     now = datetime.now()
-    happy_hour_time = datetime(now.year, now.month, now.day, 17)
+    happy_hour_time = datetime(now.year, now.month, now.day, 15)
 
     if now < happy_hour_time:
         b.blue()
     else:
         b.green()
+        b.blink(5)
 
 
 def happy_hour_loop():
