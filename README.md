@@ -8,9 +8,9 @@ http://thingm.com/products/blink-1.html
 ## setup
 set your `blink1_tool_file_path` in `blink1.py`
 
-or 
+or
 
-clone this repo 
+clone this repo
 
 ## examples
 get the device
@@ -29,9 +29,9 @@ b.delay(10)
 ```
 
 ## jacket_weather.py
-`./jacket_weather.py` or `python jacket_weather.py`
+`python ./jacket_weather.py`
 
-`./jacket_weather.py --loop` to keep running, updates every minute
+`python ./jacket_weather.py --loop` to keep running, updates every minute
 
 orange if it's warm (>50F), blue if it's cold,
 blinks if it's raining
@@ -39,11 +39,15 @@ blinks if it's raining
 uses http://openweathermap.org/
 
 ## color_cycle.py
-`./color_cycle.py` or `python color_cycle.py`
+`python ./color_cycle.py`
 cycles though various colors
 
-`christmas` mode available for the holidays
+*christmas* mode available for the holidays
+`python ./color_cycle.py christmas`
 
 ## tests.py
-`./tests.py` or `python tests.py`
+`python tests.py`
 many good examples
+
+## license
+MIT

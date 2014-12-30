@@ -1,4 +1,3 @@
-#!/usr/local/bin/python
 """
 jacket_weather.py
 

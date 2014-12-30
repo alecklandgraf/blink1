@@ -1,4 +1,3 @@
-#!/usr/local/bin/python
 """
 color_cycle.py
 """
