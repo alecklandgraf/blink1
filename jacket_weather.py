@@ -38,7 +38,7 @@ def jacket_weather():
         current_temp_F = (float(weather['main']['temp']) - 273.15) * 9 / 5 + 32
         current_condition = weather['weather'][0]['description']
         current_condition_code = weather['weather'][0]['id']
-        wind_speed = weather['wind']['speed'] * 2.239,  # m/s to miles/hour
+        wind_speed = weather['wind']['speed'] * 2.239  # m/s to miles/hour
     except:
         print "Error: couldn't get weather data"
         current_temp_F = "unknown"
