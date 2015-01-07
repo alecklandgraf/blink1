@@ -38,11 +38,13 @@ def jacket_weather():
         current_temp_F = (float(weather['main']['temp']) - 273.15) * 9 / 5 + 32
         current_condition = weather['weather'][0]['description']
         current_condition_code = weather['weather'][0]['id']
+        wind_speed = weather['wind']['speed'] * 2.239,  # m/s to miles/hour
     except:
         print "Error: couldn't get weather data"
         current_temp_F = "unknown"
         current_condition = "unknown"
         current_condition_code = -1
+        wind_speed = "unknown"
 
     print (
         "Current weather for your location is {temp} degrees F and {condition}"
@@ -50,7 +52,7 @@ def jacket_weather():
     ).format(
         temp=current_temp_F,
         condition=current_condition,
-        wind=weather['wind']['speed'] * 2.239,  # m/s to miles/hour
+        wind=wind_speed,
         time=strftime("%Y-%m-%d %H:%M:%S", time.localtime())
     )
     os.system('echo -e "\033];temp is %s\007"' % current_temp_F)
